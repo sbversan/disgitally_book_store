@@ -1,0 +1,23 @@
+bookstore_project/
+
+│DO
+              # Migration scripts (generated automatically)
+│
+├── static/                      # Static files (CSS, images, JavaScript)
+│
+│  
+└── images/
+│-book.jpeg
+
+├── templates/                   # HTML templates (Jinja2, or for Django)
+│   ├── add_book.html                # Base template
+│   ├── index.html               # Home page
+│   ├── book_added.html        # Book detail page
+│   ├── book_entris.html            # Checkout page
+
+│
+├── venv/                        # Virtual environment (recommended for Python projects)
+│
+├── requirements.txt             # List of dependencies (Flask, Django, etc.)
+├── run.py                       # Entry point for the application (Flask/Django app runner)
+└── README.md                    # Project description and setup instructions

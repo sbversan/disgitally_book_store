@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Added</title>
+    <style>
+        body {
+            background-color: beige;
+            color: red;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .left-section {
+            width: 45%;
+        }
+
+        .right-section {
+            width: 45%;
+            border-left: 2px solid red;
+            padding-left: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .book-details {
+            margin-top: 20px;
+        }
+
+        .book-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .book-table th, .book-table td {
+            border: 1px solid red;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .book-table th {
+            background-color: lightgray;
+        }
+
+        .numbered-list {
+            margin-top: 20px;
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Section: Display the newly added book -->
+    <div class="left-section">
+        <h1>Book Added!</h1>
+        <div class="book-details">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Lessons Learned:</strong></p>
+            <p>{{ book.lessons }}</p>
+        </div>
+        <p style="text-align: center;"><a href="{{ url_for('index') }}" style="color: red;">Go Back to Library</a></p>
+    </div>
+
+    <!-- Right Section: Matrix Table of All Books -->
+    <div class="right-section">
+        <h2>Books in Your Library</h2>
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Lessons Learned</th>
+                    <th>Action</th> <!-- Add action column for delete button -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book[1] }}</td>
+                    <td>{{ book[2] }}</td>
+                    <td>{{ book[3] }}</td>
+                    <td>
+                        <!-- Delete Form -->
+                        <form action="{{ url_for('delete_book', book_id=book[0]) }}" method="POST" style="display:inline;">
+                            <button type="submit" style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer;">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Numbered list of books -->
+        <h3>Chronological List of Books:</h3>
+        <ol class="numbered-list">
+            {% for book in books %}
+            <li>{{ loop.index }}. {{ book[2] }} by {{ book[1] }} - Lessons: {{ book[3] }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+</body>
+</html>

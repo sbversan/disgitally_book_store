@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Book</title>
+    <style>
+        body {
+            background-image: url('/static/book.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: red;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-container {
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid red;
+        }
+
+        .button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Add a New Book</h1>
+        <form method="POST">
+            <label for="author">Author Name:</label>
+            <input type="text" id="author" name="author" required><br>
+            
+            <label for="title">Book Title:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="lessons">Lessons Learned:</label>
+            <textarea id="lessons" name="lessons" rows="5" required></textarea><br>
+
+            <button type="submit" class="button">Add Book</button>
+        </form>
+    </div>
+
+</body>
+</html>

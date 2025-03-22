@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Library</title>
+    <style>
+        body {
+            background-image: url('/static/book.jpeg'); /* Direct path to image */
+            background-size: cover;
+            background-position: center;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 20px;
+            width: 250px;
+        }
+
+        .button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Book Library</h1>
+
+    <a href="{{ url_for('add_book') }}"><button class="button">Add a New Book</button></a>
+    <a href="{{ url_for('book_entries') }}"><button class="button">Book Entries</button></a>
+
+</body>
+</html>

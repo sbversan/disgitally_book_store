@@ -1,0 +1,5 @@
+
+flask
+Flask 
+sqlite3
+python3
